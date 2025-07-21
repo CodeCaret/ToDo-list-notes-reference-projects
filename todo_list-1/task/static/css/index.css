@@ -1,0 +1,34 @@
+#main p {
+  font-size: 18px;
+  color: #555;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+
+#main button {
+  background-color: #333;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+
+#main button:hover {
+  background-color: #444;
+}
+
+
+#main button a {
+  color: #FFD700;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+}

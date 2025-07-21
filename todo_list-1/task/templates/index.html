@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <h1>Welcome to the ToDo world</h1>
+
+    <div>
+        <p>"Transform your to-dos into done deals — because every great day begins with a plan."</p>
+        <button><a href="{% url 'task-list' %}">View All Task</a></button>
+    </div>
+{% endblock content %}

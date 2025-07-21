@@ -1,0 +1,19 @@
+<!-- task/templates/task_detail.html -->
+{% extends 'base.html' %}
+
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/task_detail.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <h1>Work in detail...</h1>
+    <div>
+        <h3>{{ task.title }}</h3>
+        <p>About: {{ task.about }}</p>
+    </div>
+    <button id="backButton">
+        <a href="{% url 'task-list' %}">Back</a>
+    </button>
+{% endblock content %}
+
