@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/task_form.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <h1>Change the data below...</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <div>
+            <label for="title" class="required">What is to be done?</label>
+            <input type="text" name="title" id="title" value="{{ task.title }}" required>
+        </div>
+
+        <div>
+            <label for="deadline" class="required">Deadline:</label>
+            <input type="datetime-local" name="deadline" id="deadline" value="{{ task.deadline|date:'Y-m-d\\TH:i' }}" required>
+            <!-- Datetime create in the database is basically an object which cann't be rendered by HTML. Hence, it should be formated -->
+        </div>
+
+        <div>
+            <label for="about" class="required">About:</label>
+            <textarea name="about" id="about" required>{{ task.about }}</textarea>
+        </div>
+
+        <div>
+            <label for="status">Status:</label>
+            <input type="checkbox" name="status" id="status" value="true" {% if task.status %} checked {% endif %}>
+        </div>
+
+        <button type="submit">Edit</button>
+    </form>
+{% endblock content %}
+

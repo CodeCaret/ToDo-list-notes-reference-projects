@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/task_list.css' %}">
+{% endblock style %}
+
+{% block content %}
+
+    <form>
+        <div>
+            <input type="text" name="search" placeholder="Search by title" value="{{ request.GET.search }}">
+            <button type="submit">Go</button>
+
+            {% if request.GET.search %}
+                <button><a href="{% url 'task-list' %}">Clear</a></button>
+            {% endif %}
+        </div>
+    </form>
+
+    <div>
+        {% if tasks %}
+            <h1>Your works to do...</h1>
+            {% for task in tasks %}
+                <div>
+                    <h3>
+                        <!-- Hyperlinked title to call RETRIEVE One URL -->
+                        <a href="{% url 'task-detail' task.id %}">
+                        <!-- task.id extracts id from task object -->
+                            {{ forloop.counter }}. {{ task.title }}
+                        </a>
+                    </h3>
+                    <p>About: {{ task.about|truncatewords:3 }}</p>
+                    <!-- Short info (truncatewords:3 chops only word)-->
+                    {% if not task.status %}
+                        <p class="incomplete">Deadline: {{ task.deadline }}</p>
+                    {% else %}
+                        <p class="complete">Completed🎉</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <h1>No work available...😁</h1>
+        {% endif %}
+    </div>
+{% endblock content %}
+

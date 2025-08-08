@@ -1,0 +1,109 @@
+#main > div {
+  margin: 15px auto;
+  width: 500px;
+  padding: 20px;
+  border-radius: 0.5rem;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+
+#main > div > h3 {
+  font-size: 25px;
+  text-decoration: underline;
+  color: #FFD700;
+  margin-bottom: 10px;
+}
+
+
+#main > div > p {
+  font-size: 18px;
+  color: #fff;
+  font-style: italic;
+}
+
+
+/* Little Responsive */
+@media (max-width: 768px) {
+  #main > div {
+    width: 90%;
+    margin-bottom: 15px;
+  }
+}
+
+
+#main > button#backButton {
+  font-size: 20px;
+  border: none;
+  background: none;
+  font-weight: 600;
+}
+
+
+#main > button#backButton::before {
+  margin-left: auto;
+}
+
+
+#main > button#backButton::after, #main > button#backButton::before {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: #f44336;
+  display: block;
+  transition: 0.5s;
+}
+
+
+#main > button#backButton:hover::after, #main > button#backButton:hover::before {
+  width: 100%;
+}
+
+
+#main > button#backButton > a {
+  text-decoration: none;
+  color: #f16b78;
+}
+
+
+#main > div > p.incomplete {
+  color: red;
+  font-weight: bolder;
+}
+
+
+#main > div > p.complete {
+  color: greenyellow;
+  font-weight: bolder;
+}
+
+
+#main > div > button {
+  background-color: #FFCC70;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  color: #333;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#main > div > button:hover {
+  background-color: #C850C0;
+  transform: translateY(-3px);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 6px, rgba(0, 0, 0, 0.1) 0px 10px 15px;
+}
+
+#main > div > button a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 25px;
+}
