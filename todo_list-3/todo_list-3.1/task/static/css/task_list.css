@@ -1,0 +1,115 @@
+/* Search Box */
+#main > form > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+#main form > div > input {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-style: italic;
+  color: #666;
+  transition: border-color 0.3s ease;
+}
+
+
+#main > form > div > input:focus {
+  outline: none;
+  border-color: #FFD700;
+  box-shadow: 0 0 6px #FFD700a0;
+}
+
+
+#main > form > div > button {
+  padding: 5px 5px;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  background-color: #333;
+  color: #FFD700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+#main > form > div > button > a {
+  text-decoration: none;
+  color: #FFD700;
+}
+
+
+#main > form > div > button:hover {
+    background-color: #444;
+}
+
+
+/* Task card style */
+#main > div {
+  display: block;
+  margin-top: 15px;
+}
+
+
+#main > div > div {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: 370px;
+  margin: 15px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+#main > div > div:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+#main > div > div h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+
+#main > div > div > h3 > a {
+  text-decoration: none;
+  color: #FFD700;
+}
+
+
+#main > div > div p {
+  font-size: 16px;
+  color: #666;
+}
+
+
+/* Little Responsive */
+@media (max-width: 768px) {
+  #main > div > div {
+    width: 90%;
+    margin-bottom: 15px;
+  }
+}
+
+
+#main > div > div > p.incomplete {
+  color: red;
+  font-weight: bolder;
+}
+
+
+#main > div > div > p.complete {
+  color: greenyellow;
+  font-weight: bolder;
+}
+

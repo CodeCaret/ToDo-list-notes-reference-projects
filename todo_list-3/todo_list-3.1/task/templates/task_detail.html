@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/task_detail.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <h1>Work in detail...</h1>
+
+    <div>
+        <h3>{{ task.title }}</h3>
+        <p>Deadline: {{ task.deadline }}</p>
+        <p>About: {{ task.about }}</p>
+        {% if not task.status %}
+            <p class="incomplete">Incomplete😱</p>
+        {% else %}
+            <p class="complete">Completed🎉</p>
+        {% endif %}
+
+        <!-- Button to call UPDATE URL -->
+        <button><a href="{% url 'edit-task' task.id %}">Edit</a></button>
+
+        <!-- Button to call DELETE URL -->
+        <button><a href="{% url 'remove-task' task.id %}">Remove</a></button>
+    </div>
+    
+    <button id="backButton">
+        <a href="{% url 'task-list' %}">Back</a>
+    </button>
+{% endblock content %}
+

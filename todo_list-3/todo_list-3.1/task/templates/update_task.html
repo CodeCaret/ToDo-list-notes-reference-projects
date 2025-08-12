@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/task_form.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <h1>Change the data below...</h1>
+    
+    <!-- for-loop Rendering with asterisk for required fileds -->
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div>
+                <label for="{{ field.id_for_label }}">
+                        {{ field.label }}:
+                    {% if field.field.required %}
+                        <span style="color: red;">*</span>
+                    {% endif %}
+                </label>
+                {{ field }}
+            </div>
+        {% endfor %}
+        <button type="submit">Add Task</button>
+    </form>
+{% endblock content %}
+
