@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+#root {
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+}
+
+
+nav {
+  background-color: #333;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+nav a {
+  text-decoration: none;
+  color: #FFD700;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px 20px;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+
+nav a:hover {
+  background-color: #444;
+  border-radius: 5px;
+}
+
+
+#main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 45px;
+  padding: 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+h1 {
+  font-size: 1.7rem;
+}

@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/task_form.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <h1>Fill the data below...</h1>
+
+    <!-- for-loop Rendering with asterisk for required fileds -->
+    <form method="post" >
+        {% csrf_token %}
+        {% for field in form %}
+            <div>
+                <!-- Displaying label of each field -->
+                <label for="{{ field.id_for_label }}">
+                                        <!-- Removing : for first field which has ? already -->
+                        {{ field.label }}{% if field.label != 'What is to be done?' %}:{% endif %}
+                    
+                    <!-- Marking only required field with red asterisk -->
+                    {% if field.field.required %}
+                        <span style="color: red;">*</span>
+                    {% endif %}
+                </label>
+
+                <!-- Displaying Help text only if it available in specific field -->
+                {% if field.help_text %}
+                        <small><li class="help-text">{{ field.help_text }}</li></small>
+                {% endif %}
+
+                <!-- Displaying error messages if any occurs for specific fields -->
+                {% if field.errors %}
+                        {% for error in field.errors %}
+                            <small><li class="error-message">{{ error }}</li></small>
+                        {% endfor %}
+                {% endif %}
+                
+                <!-- Displaying input fields -->
+                {{ field }}
+            </div>
+        {% endfor %}
+        <button type="submit">Add Task</button>
+    </form>
+{% endblock content %}
+
+
+<!-- Examples of form rendering way -->
+<!-- ------------------------------------------------------------------ -->
+
+<!-- Automatic or implicit Rendering -->
+
+<!-- <form method="post">
+    {% csrf_token %}
+    {{ form }} –wraps fields in <div> tags (Prefferd)
+
+    {{ form.as_p }} –wraps fields in <p> tags
+
+    {{ form.as_ul }} –wraps fields in <li> tags within a <ul>
+
+    <button type="submit">Add Task</button>
+</form> -->
+
+<!-- ------------------------------------------------------------------ -->
+
+<!-- for-loop Rendering with asterisk for required fileds -->
+
+<!-- <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <div>
+            <label for="{{ field.id_for_label }}">
+                    {{ field.label }}:
+                {% if field.field.required %}
+                    <span style="color: red;">*</span>
+                {% endif %}
+            </label>
+            {{ field }}
+        </div>
+    {% endfor %}
+    <button type="submit">Add Task</button>
+</form> -->
+
+<!-- ------------------------------------------------------------------ -->
+
+<!-- for-loop Rendering without denoting asterisk for required fileds -->
+
+<!-- <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <div>
+            <label for="{{ field.id_for_label }}">
+                {{ field.label }}:
+            </label>
+            {{ field }}
+        </div>
+    {% endfor %}
+    <button type="submit">Add Task</button>
+</form> -->
+
+<!-- ------------------------------------------------------------------ -->
+
+<!-- Manual Rendering -->
+
+<!-- <form method="post">
+    {% csrf_token %}
+    <label for="id_title">{{ form.title.label }}</label>
+    {{ form.title }}
+    <label for="id_deadline">{{ form.deadline.label }}</label>
+    {{ form.deadline }}
+    <label for="id_about">{{ form.about.label }}</label>
+    {{ form.about }}
+    <label for="id_status">{{ form.status.label }}</label>
+    {{ form.status }}
+    <button type="submit">Add</button>
+</form> -->
+
+<!-- ------------------------------------------------------------------ -->
