@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/auth_form.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <h1>Authenticate Yourself...</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p class="{{ message.tags }}-message">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">LogIn</button>
+    </form>
+{% endblock content %}
+
