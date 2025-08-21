@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock style %}
+
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <h1>Hey {{ request.user.username }}!</h1>
+
+        <div>
+            <p>"Let’s turn your plans into progress — one task at a time."</p>
+            <!-- Button to call CREATE URL -->
+            <button><a href="{% url 'add-task' %}">Add Task</a></button>
+
+            <!-- Button to call RETRIEVE All URL -->
+            <button><a href="{% url 'task-list' %}">View All Task</a></button>
+
+            <!-- Button to call Logout URL -->
+            <button><a href="{% url 'logout' %}">LogOut</a></button>
+        </div>
+    {% else %}
+        <h1>Welcome to the ToDo world</h1>
+
+        <div>
+            <p>"Transform your to-dos into done deals — because every great day begins with a plan."</p>
+            <!-- Button to call Signup URL -->
+            <button><a href="{% url 'signup' %}">SignUp</a></button>
+
+            <!-- Button to call Login URL -->
+            <button><a href="{% url 'login' %}">LogIn</a></button>
+        </div>
+    {% endif %}
+{% endblock content %}
+
